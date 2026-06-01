@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABI Ukraine | Arena Breakout Українською</title>
+<meta name="description" content="Найбільша українська спільнота Arena Breakout Infinite. Discord, тімейти, новини та гайди українською.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#0f1115;color:#fff}
+header{position:fixed;top:0;width:100%;background:rgba(10,10,10,.85);backdrop-filter:blur(8px);z-index:1000}
+.nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:15px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{height:60px}
+nav a{color:#fff;text-decoration:none;margin:0 10px}
+.hero{height:100vh;background:url('assets/hero.jpg') center/cover no-repeat;display:flex;align-items:center}
+.overlay{background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.3));width:100%;height:100%;display:flex;align-items:center}
+.hero-content{max-width:1200px;padding:40px;margin:auto;width:100%}
+h1{font-size:72px}
+.orange{color:#ff9f1c}
+.subtitle{font-size:24px;margin:20px 0}
+.buttons{display:flex;gap:20px;flex-wrap:wrap}
+.btn{padding:16px 28px;border-radius:12px;text-decoration:none;color:#fff;font-weight:bold;transition:.3s;animation:float 3s ease-in-out infinite}
+.discord{background:#ff9f1c}
+.youtube{background:#20242c;border:1px solid #555}
+.btn:hover{transform:translateY(-5px) scale(1.03)}
+@keyframes float{50%{transform:translateY(-6px)}}
+.stats,.cards{max-width:1200px;margin:auto;padding:70px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#181b22;border-radius:16px;overflow:hidden}
+.card img{width:100%;height:220px;object-fit:cover}
+.card-content{padding:20px}
+.stat{text-align:center;background:#181b22;padding:25px;border-radius:16px}
+.stat h3{color:#ff9f1c;font-size:32px}
+.about{max-width:1200px;margin:auto;padding:60px 20px;line-height:1.8}
+footer{background:#181b22;padding:40px;text-align:center}
+.float-discord{position:fixed;right:20px;bottom:20px;background:#ff9f1c;color:#fff;padding:15px 20px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 0 25px rgba(255,159,28,.5);animation:float 2.5s infinite}
+@media(max-width:768px){
+h1{font-size:42px}
+.subtitle{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav">
+<div class="logo">
+<img src="assets/logo.png" alt="ABI Ukraine">
+</div>
+<nav>
+<a href="#about">Про гру</a>
+<a href="#community">Спільнота</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="overlay">
+<div class="hero-content">
+<h1>ABI <span class="orange">UKRAINE</span></h1>
+<p class="subtitle">Arena Breakout Українською — найбільша українська спільнота Arena Breakout Infinite</p>
+<div class="buttons">
+<a class="btn discord" href="https://discord.gg/yYkDSV3JfQ" target="_blank">🔥 Приєднатися до Discord</a>
+<a class="btn youtube" href="https://youtube.com/@arenabreakoutboctok" target="_blank">🎥 YouTube 191 000+</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="stats" id="community">
+<div class="grid">
+<div class="stat"><h3>191 000+</h3><p>Підписників YouTube</p></div>
+<div class="stat"><h3>🇺🇦</h3><p>Українська спільнота</p></div>
+<div class="stat"><h3>🎮</h3><p>Пошук тімейтів</p></div>
+<div class="stat"><h3>🎙️</h3><p>Голосові кімнати</p></div>
+</div>
+</section>
+
+<section class="cards">
+<div class="grid">
+<div class="card"><img src="assets/raid.jpg"><div class="card-content"><h3>Небезпечні рейди</h3></div></div>
+<div class="card"><img src="assets/pvp.jpg"><div class="card-content"><h3>PvP та PvE</h3></div></div>
+<div class="card"><img src="assets/weapons.jpg"><div class="card-content"><h3>Кастомізація зброї</h3></div></div>
+<div class="card"><img src="assets/extraction.jpg"><div class="card-content"><h3>Евакуація</h3></div></div>
+</div>
+</section>
+
+<section class="about" id="about">
+<h2>Про Arena Breakout Infinite</h2>
+<p>Arena Breakout Infinite — тактичний extraction shooter, де кожен рейд має значення. Збирай цінний лут, борись з іншими гравцями та успішно евакуюйся, щоб зберегти спорядження. Наша спільнота допоможе знайти тімейтів, отримати поради та бути в курсі всіх оновлень гри.</p>
+</section>
+
+<footer>
+<p>© ABI Ukraine | Arena Breakout Українською</p>
+</footer>
+
+<a class="float-discord" href="https://discord.gg/yYkDSV3JfQ" target="_blank">Discord</a>
+
+</body>
+</html>
