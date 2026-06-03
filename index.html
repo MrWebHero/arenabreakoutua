@@ -1,11 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ABI Ukraine | Arena Breakout Українською</title>
 <meta name="description" content="Найбільша українська спільнота Arena Breakout Infinite. Discord, тімейти, новини та гайди українською.">
-  <meta property="og:title" content="ABI Ukraine | Arena Breakout Українською">
+<meta name="keywords" content="Arena Breakout Infinite, Arena Breakout Україна, ABI Ukraine, Arena Breakout Discord">
+<meta name="theme-color" content="#0f1115">
+<link rel="canonical" href="https://mrwebhero.github.io/arenabreakoutua/">
+<link rel="icon" type="image/png" href="logo.png.PNG">
+<meta property="og:title" content="ABI Ukraine | Arena Breakout Українською">
 <meta property="og:description" content="Найбільша українська спільнота Arena Breakout Infinite">
 <meta property="og:image" content="https://mrwebhero.github.io/arenabreakoutua/logo2.PNG">
 <meta property="og:url" content="https://mrwebhero.github.io/arenabreakoutua/">
@@ -20,10 +25,9 @@ header{position:fixed;top:0;width:100%;background:rgba(10,10,10,.85);backdrop-fi
 nav a{color:#fff;text-decoration:none;margin:0 10px}
 .hero{height:100vh;background:url('hero.jpg.PNG') center/cover no-repeat;display:flex;align-items:center}
 .overlay{background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.3));width:100%;height:100%;display:flex;align-items:center}
-.buttons{display:flex;gap:20px;flex-wrap:wrap;padding-top:50px}
+.buttons{display:flex;gap:20px;flex-wrap:wrap;margin-top:140px}
 .orange{color:#ff9f1c}
 .subtitle{font-size:24px;margin:20px 0}
-
 .btn{padding:16px 28px;border-radius:12px;text-decoration:none;color:#fff;font-weight:bold;transition:.3s;animation:float 3s ease-in-out infinite}
 .discord{background:#ff9f1c}
 .youtube{background:#20242c;border:1px solid #555}
@@ -38,62 +42,53 @@ nav a{color:#fff;text-decoration:none;margin:0 10px}
 .stat h3{color:#ff9f1c;font-size:32px}
 .about{max-width:1200px;margin:auto;padding:60px 20px;line-height:1.8}
 footer{background:#181b22;padding:40px;text-align:center}
-.float-discord{position:fixed;right:20px;bottom:20px;background:#ff9f1c;color:#fff;padding:15px 20px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 0 25px rgba(255,159,28,.5);animation:float 2.5s infinite}
+
+.socials{margin-top:24px;display:flex;justify-content:center;gap:32px}
+.socials a{
+color:#aaa;
+text-decoration:none;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:7px;
+font-size:12px;
+letter-spacing:.5px;
+transition:.3s;
+}
+.socials a svg{width:32px;height:32px;fill:currentColor;transition:.3s}
+.socials a.discord-link:hover{color:#5865F2}
+.socials a.youtube-link:hover{color:#FF0000}
+.socials a.tiktok-link:hover{color:#ff9f1c}
+
+.float-discord{
+position:fixed;right:20px;bottom:20px;
+background:#ff9f1c;color:#fff;
+padding:14px 20px;border-radius:50px;
+text-decoration:none;font-weight:bold;
+box-shadow:0 0 25px rgba(255,159,28,.5);
+animation:float 2.5s infinite;
+display:flex;align-items:center;gap:8px;
+}
+.float-discord svg{width:20px;height:20px;fill:#fff}
+
 @media(max-width:768px){
 h1{font-size:42px}
 .subtitle{font-size:18px}
 }
-  .discord-widget{
-max-width:1200px;
-margin:60px auto;
-padding:20px;
-text-align:center;
-}
-
-.discord-widget h2{
-color:#ffb84d;
-margin-bottom:20px;
-font-size:32px;
-}
-
-.discord-widget iframe{
-border-radius:15px;
-box-shadow:0 0 25px rgba(255,184,77,.25);
-border:none;
-}
-  .guides{
-max-width:1200px;
-margin:70px auto;
-padding:20px;
-}
-
-.guides h2{
-text-align:center;
-margin-bottom:30px;
-color:#ffb84d;
-font-size:36px;
-}
-
-.guides details{
-background:linear-gradient(135deg,#111827,#1f2937);
-border-radius:16px;
-margin-bottom:15px;
-padding:5px;
-}
-
-.guides summary{
-cursor:pointer;
-padding:20px;
-font-size:20px;
-font-weight:700;
-color:#ffb84d;
-}
-
-.guide-content{
-padding:0 20px 20px;
-line-height:1.8;
-}
+.discord-widget{max-width:1200px;margin:60px auto;padding:20px;text-align:center}
+.discord-widget h2{color:#ffb84d;margin-bottom:20px;font-size:32px}
+.discord-widget iframe{border-radius:15px;box-shadow:0 0 25px rgba(255,184,77,.25);border:none}
+.guides{max-width:1200px;margin:70px auto;padding:20px}
+.guides h2{text-align:center;margin-bottom:30px;color:#ffb84d;font-size:36px}
+.guides details{background:linear-gradient(135deg,#111827,#1f2937);border-radius:16px;margin-bottom:15px;padding:5px}
+.guides summary{cursor:pointer;padding:20px;font-size:20px;font-weight:700;color:#ffb84d}
+.guide-content{padding:0 20px 20px;line-height:1.8}
+.card details{padding:15px}
+.card summary{cursor:pointer;font-weight:700;color:#ffb84d;list-style:none}
+.card summary::-webkit-details-marker{display:none}
+.card .guide-content{padding-top:10px;line-height:1.7}
 </style>
+
 </head>
 <body>
 
@@ -133,43 +128,47 @@ line-height:1.8;
 
 <section class="cards">
 <div class="grid">
-<div class="card"><img src="raid.jpg.PNG"><div class="card-content"><h3>Небезпечні рейди</h3></div></div>
-<div class="card"><img src="pvp.jpg.PNG"><div class="card-content"><h3>PvP та PvE</h3></div></div>
-<div class="card"><img src="weapons.jpg.PNG"><div class="card-content"><h3>Кастомізація зброї</h3></div></div>
-<div class="card"><img src="extraction.jpg.PNG"><div class="card-content"><h3>Евакуація</h3></div></div>
-</div>
-</section>
-  <details>
+<div class="card">
+<img src="raid.jpg.PNG" alt="Небезпечні рейди">
+<details>
 <summary>🎯 Небезпечні рейди</summary>
 <div class="guide-content">
-Arena Breakout Infinite побудована навколо ризику та винагороди. Кожен рейд — це шанс знайти цінний лут, але також ризик втратити все спорядження. Перед входом до рейду важливо підготувати зброю, броню, аптечки та боєприпаси. Успішна евакуація дозволяє зберегти весь знайдений лут та використовувати його в майбутніх рейдах.
+<p>Кожен рейд — це ризик та винагорода. Знайди лут та успішно евакуюйся.</p>
 </div>
 </details>
-
+</div>
+<div class="card">
+<img src="pvp.jpg.PNG" alt="PvP та PvE">
 <details>
 <summary>⚔️ PvP та PvE</summary>
 <div class="guide-content">
-Arena Breakout Infinite поєднує PvP та PvE елементи. На картах ви зустрічаєте як реальних гравців, так і ботів. Перемога залежить не тільки від стрільби, але й від позиціонування, інформації та правильної тактики. Кожне зіткнення може принести цінний лут або завершити рейд достроково.
+<p>Бої проти гравців та ботів. Тактика вирішує результат рейду.</p>
 </div>
 </details>
-
+</div>
+<div class="card">
+<img src="weapons.jpg.PNG" alt="Кастомізація зброї">
 <details>
 <summary>🔫 Кастомізація зброї</summary>
 <div class="guide-content">
-Система Gunsmith дозволяє використовувати понад 75 видів зброї та більше 900 модифікацій. Гравці можуть встановлювати приціли, руків'я, глушники, приклади та інші модулі для створення власної збірки під будь-який стиль гри.
+<p>Створюй власні збірки за допомогою системи Gunsmith.</p>
 </div>
 </details>
-
+</div>
+<div class="card">
+<img src="extraction.jpg.PNG" alt="Евакуація">
 <details>
 <summary>🚁 Евакуація</summary>
 <div class="guide-content">
-Головна мета рейду — не кількість вбивств, а успішна евакуація. Після збору спорядження необхідно дістатися до точки виходу. Якщо гравець загине до евакуації, більшість спорядження буде втрачено. Саме тому грамотний вибір маршруту та контроль часу є ключем до успіху.
+<p>Головна мета — вийти живим та зберегти спорядження.</p>
 </div>
 </details>
-  <section class="discord-widget">
+</div>
+</div>
+</section>
 
+<section class="discord-widget">
 <h2>💬 Discord Спільнота</h2>
-
 <iframe
 src="https://discord.com/widget?id=1274084700625043457&theme=dark"
 width="100%"
@@ -178,12 +177,10 @@ allowtransparency="true"
 frameborder="0"
 sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
 </iframe>
-
 </section>
-  <section class="guides">
 
+<section class="guides">
 <h2>📚 Гайди ABI Ukraine</h2>
-
 <details>
 <summary>🎒 Як одягатися в рейд новачку</summary>
 <div class="guide-content">
@@ -193,7 +190,6 @@ sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scr
 <p>Завжди беріть аптечку, бинти та знеболювальне.</p>
 </div>
 </details>
-
 <details>
 <summary>💰 Як не втратити всі гроші</summary>
 <div class="guide-content">
@@ -202,7 +198,6 @@ sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scr
 <p>Завжди думайте про евакуацію.</p>
 </div>
 </details>
-
 <details>
 <summary>🎯 Поради для соло-гравців</summary>
 <div class="guide-content">
@@ -211,8 +206,6 @@ sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scr
 <p>Інформація важливіша за агресію.</p>
 </div>
 </details>
-    
-
 <details>
 <summary>🔫 Найкраща зброя для новачків</summary>
 <div class="guide-content">
@@ -221,7 +214,6 @@ sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scr
 <p>Краще купити хороші патрони, ніж дорогий приціл.</p>
 </div>
 </details>
-
 <details>
 <summary>🛡️ Як працює броня та патрони</summary>
 <div class="guide-content">
@@ -230,7 +222,6 @@ sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scr
 <p>Перед рейдом перевіряйте рівень пробиття боєприпасів.</p>
 </div>
 </details>
-
 <details>
 <summary>💵 Як швидко заробити Koen</summary>
 <div class="guide-content">
@@ -239,7 +230,6 @@ sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scr
 <p>Стабільні невеликі прибутки кращі за ризиковані рейди.</p>
 </div>
 </details>
-
 <details>
 <summary>🎧 Чому гарнітура важливіша за шолом</summary>
 <div class="guide-content">
@@ -248,7 +238,6 @@ sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scr
 <p>Більшість досвідчених гравців завжди використовують навушники.</p>
 </div>
 </details>
-
 <details>
 <summary>⏱️ Правило 15–20 хвилин</summary>
 <div class="guide-content">
@@ -266,9 +255,46 @@ sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scr
 
 <footer>
 <p>© ABI Ukraine | Arena Breakout Українською</p>
+<div class="socials">
+
+  <!-- Discord -->
+
+  <a href="https://discord.gg/yYkDSV3JfQ" target="_blank" class="discord-link" title="Discord">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+    </svg>
+    Discord
+  </a>
+
+  <!-- YouTube -->
+
+  <a href="https://youtube.com/@arenabreakoutboctok" target="_blank" class="youtube-link" title="YouTube">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    </svg>
+    YouTube
+  </a>
+
+  <!-- TikTok -->
+
+  <a href="#" target="_blank" class="tiktok-link" title="TikTok">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
+    </svg>
+    TikTok
+  </a>
+
+</div>
 </footer>
 
-<a class="float-discord" href="https://discord.gg/yYkDSV3JfQ" target="_blank">Discord</a>
+<!-- Плаваюча кнопка Discord -->
+
+<a class="float-discord" href="https://discord.gg/yYkDSV3JfQ" target="_blank">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+  </svg>
+  Discord
+</a>
 
 </body>
 </html>
