@@ -177,24 +177,81 @@ h1{font-size:64px;line-height:1.1}
 .card summary::-webkit-details-marker{display:none}
 .card .guide-content{padding-top:10px;line-height:1.7}
 
-/* ===== DISCORD WIDGET ===== */
-.discord-widget{max-width:1200px;margin:60px auto;padding:20px;text-align:center}
-.discord-widget h2{color:#ffb84d;margin-bottom:20px;font-size:32px}
-/* Placeholder поки iframe не завантажився */
-.discord-placeholder{
-  width:100%;height:500px;
-  background:#181b22;border-radius:15px;
-  display:flex;align-items:center;justify-content:center;
-  color:#888;font-size:16px;cursor:pointer;
-  border:1px dashed #333;
-  transition:.3s;
+/* ===== DISCORD STATS ===== */
+.discord-stats{max-width:1200px;margin:60px auto;padding:0 20px}
+.discord-stats h2{color:#ffb84d;margin-bottom:20px;font-size:32px;text-align:center}
+.stats-row{
+  display:flex;justify-content:center;gap:20px;flex-wrap:wrap;
 }
-.discord-placeholder:hover{border-color:#ff9f1c;color:#ff9f1c}
-#discord-iframe{
-  border-radius:15px;
-  box-shadow:0 0 25px rgba(255,184,77,.25);
-  border:none;width:100%;height:500px;
-  display:none;
+.stat-card{
+  background:#181b22;border-radius:16px;
+  padding:24px 40px;text-align:center;
+  border:1px solid #1e2535;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  min-width:160px;
+}
+.stat-card .stat-num{
+  font-size:36px;font-weight:700;color:#fff;
+  font-family:Arial,sans-serif;
+}
+.stat-card .stat-label{font-size:13px;color:#888}
+.stat-card .dot-online{
+  width:10px;height:10px;border-radius:50%;
+  background:#23a55a;
+  display:inline-block;
+  box-shadow:0 0 8px rgba(35,165,90,.6);
+  margin-right:5px;
+}
+
+/* ===== COMMENTS ===== */
+.comments-section{max-width:1200px;margin:0 auto 60px;padding:0 20px}
+.comments-section h2{color:#ffb84d;font-size:32px;margin-bottom:24px;text-align:center}
+
+.comment-form{
+  background:#181b22;border-radius:16px;
+  padding:24px;margin-bottom:30px;
+  border:1px solid #1e2535;
+}
+.form-row{display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.comment-form input,.comment-form textarea{
+  background:#0f1115;border:1px solid #2a3040;
+  color:#fff;border-radius:10px;padding:12px 16px;
+  font-size:14px;font-family:Arial,sans-serif;
+  outline:none;transition:.2s;width:100%;
+}
+.comment-form input{max-width:220px}
+.comment-form textarea{resize:vertical;min-height:90px;max-width:100%}
+.comment-form input:focus,.comment-form textarea:focus{border-color:#ff9f1c}
+.comment-form input::placeholder,.comment-form textarea::placeholder{color:#555}
+.submit-btn{
+  background:#ff9f1c;color:#fff;
+  border:none;border-radius:10px;
+  padding:12px 28px;font-size:14px;font-weight:700;
+  cursor:pointer;transition:.2s;
+}
+.submit-btn:hover{background:#e8901a;transform:translateY(-1px)}
+.submit-btn:disabled{background:#444;cursor:default;transform:none}
+
+.comments-list{display:flex;flex-direction:column;gap:14px}
+.comment-item{
+  background:#181b22;border-radius:14px;
+  padding:18px 20px;border:1px solid #1e2535;
+}
+.comment-meta{
+  display:flex;align-items:center;gap:10px;margin-bottom:8px;
+}
+.comment-nick{
+  font-weight:700;color:#ff9f1c;font-size:14px;
+}
+.comment-time{font-size:12px;color:#555}
+.comment-text{font-size:14px;color:#ccc;line-height:1.6}
+.comments-empty{
+  text-align:center;color:#555;padding:30px;
+  font-size:14px;
+}
+.comments-note{
+  font-size:12px;color:#555;text-align:center;
+  margin-top:10px;
 }
 
 /* ===== GUIDES ===== */
@@ -222,19 +279,7 @@ footer{background:#181b22;padding:40px;text-align:center}
 .socials a.youtube-link:hover{color:#FF0000}
 .socials a.tiktok-link:hover{color:#ff9f1c}
 
-/* ===== FLOAT BUTTON — фіолетовий Discord ===== */
-.float-discord{
-  position:fixed;right:20px;bottom:20px;
-  background:#5865F2;color:#fff;
-  padding:14px 20px;border-radius:50px;
-  text-decoration:none;font-weight:bold;
-  box-shadow:0 0 25px rgba(88,101,242,.6);
-  animation:float 2.5s infinite;
-  display:flex;align-items:center;gap:8px;
-  z-index:999;
-  will-change:transform;
-}
-.float-discord svg{width:20px;height:20px;fill:#fff}
+/* ===== FLOAT BUTTON — прибрано ===== */
 
 /* ===== MEDIA ===== */
 @media(max-width:768px){
@@ -280,6 +325,7 @@ footer{background:#181b22;padding:40px;text-align:center}
   <a href="#about" onclick="closeMenu()">🎮 Про гру</a>
   <a href="#discord-section" onclick="closeMenu()">💬 Спільнота</a>
   <a href="#guides-section" onclick="closeMenu()">📚 Гайди</a>
+  <a href="weapons.html">🔫 Зброя</a>
 </nav>
 
 <main>
@@ -367,20 +413,39 @@ footer{background:#181b22;padding:40px;text-align:center}
 </div>
 </section>
 
-<!-- FIX: Discord iframe завантажується лише після кліку, не гальмує сторінку -->
+<!-- Discord статистика + коментарі -->
 
-<section class="discord-widget" id="discord-section" aria-label="Discord спільнота">
+<section class="discord-stats" id="discord-section" aria-label="Discord спільнота">
 <h2>💬 Discord Спільнота</h2>
-<div class="discord-placeholder" id="discord-placeholder" onclick="loadDiscord()" role="button" tabindex="0" aria-label="Натисніть щоб завантажити Discord віджет">
-  💬 Натисніть, щоб завантажити Discord
+<div class="stats-row">
+  <div class="stat-card">
+    <span class="stat-num" id="online-count">—</span>
+    <span class="stat-label"><span class="dot-online"></span>Онлайн зараз</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num">300+</span>
+    <span class="stat-label">Учасників сервера</span>
+  </div>
+  <div class="stat-card" style="cursor:pointer" onclick="window.open('https://discord.gg/yYkDSV3JfQ','_blank')">
+    <svg viewBox="0 0 24 24" width="36" height="36" style="fill:#5865F2"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+    <span class="stat-label">Приєднатися</span>
+  </div>
 </div>
-<iframe
-  id="discord-iframe"
-  title="ABI Ukraine Discord сервер"
-  allowtransparency="true"
-  sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-  aria-label="Discord сервер ABI Ukraine">
-</iframe>
+</section>
+
+<section class="comments-section" aria-label="Коментарі">
+<h2>🗨️ Залишити коментар</h2>
+<div class="comment-form">
+  <div class="form-row">
+    <input type="text" id="comment-nick" placeholder="Твій нікнейм" maxlength="30">
+    <input type="text" id="comment-text-short" placeholder="Залиш коментар..." maxlength="300" style="max-width:100%;flex:1">
+  </div>
+  <button class="submit-btn" onclick="submitComment()">Надіслати</button>
+  <p class="comments-note">Без реєстрації — просто введи нік та напиши. Будь ввічливим 🙏</p>
+</div>
+<div class="comments-list" id="comments-list">
+  <div class="comments-empty" id="comments-empty">Поки що немає коментарів. Будь першим! 👋</div>
+</div>
 </section>
 
 <section class="guides" id="guides-section" aria-label="Гайди для гравців">
@@ -534,33 +599,135 @@ footer{background:#181b22;padding:40px;text-align:center}
 </div>
 </footer>
 
-<a class="float-discord" href="https://discord.gg/yYkDSV3JfQ" target="_blank" rel="noopener noreferrer" aria-label="Приєднатися до Discord">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-  </svg>
-  Discord
-</a>
+<!-- Firebase SDK -->
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script>
-// Завантажуємо Discord iframe лише по кліку — не гальмує LCP/TBT
-function loadDiscord() {
-  var iframe = document.getElementById('discord-iframe');
-  var placeholder = document.getElementById('discord-placeholder');
-  iframe.src = 'https://discord.com/widget?id=1274084700625043457&theme=dark';
-  iframe.style.display = 'block';
-  placeholder.style.display = 'none';
+// ============================================================
+// TODO: Замінити на свій Firebase конфіг
+// 1. Зайди на console.firebase.google.com
+// 2. Створи проект → Realtime Database → Start in test mode
+// 3. Натисни Project Settings → твій firebaseConfig нижче
+// ============================================================
+var firebaseConfig = {
+  apiKey: "AIzaSyAapGNTxX94lie3TLnczvevjeglCw-eCIk",
+  authDomain: "arena-fc949.firebaseapp.com",
+  databaseURL: "https://arena-fc949-default-rtdb.firebaseio.com",
+  projectId: "arena-fc949",
+  storageBucket: "arena-fc949.firebasestorage.app",
+  messagingSenderId: "135178407276",
+  appId: "1:135178407276:web:c7f393f0cd5bfa65807749",
+  measurementId: "G-0HEMRSQZB2"
+};
+
+var db = null;
+try {
+  firebase.initializeApp(firebaseConfig);
+  db = firebase.database();
+  loadComments();
+} catch(e) {
+  console.log('Firebase не налаштовано — коментарі в локальному режимі');
+  loadLocalComments();
 }
 
-// Бургер меню
+// ===== Discord онлайн статистика =====
+fetch('https://discord.com/api/guilds/1274084700625043457/widget.json')
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    var el = document.getElementById('online-count');
+    if(el && data.presence_count !== undefined){
+      el.textContent = data.presence_count;
+    }
+  })
+  .catch(function(){ });
+
+// ===== Коментарі =====
+function submitComment() {
+  var nick = document.getElementById('comment-nick').value.trim();
+  var text = document.getElementById('comment-text-short').value.trim();
+  if(!nick){ alert('Введи нікнейм!'); return; }
+  if(!text){ alert('Напиши щось!'); return; }
+  if(nick.length > 30 || text.length > 300){ return; }
+
+  var comment = {
+    nick: nick,
+    text: text,
+    time: Date.now()
+  };
+
+  var btn = document.querySelector('.submit-btn');
+  btn.disabled = true;
+
+  if(db){
+    db.ref('comments').push(comment)
+      .then(function(){
+        document.getElementById('comment-text-short').value = '';
+        btn.disabled = false;
+      })
+      .catch(function(){
+        saveLocal(comment);
+        btn.disabled = false;
+      });
+  } else {
+    saveLocal(comment);
+    document.getElementById('comment-text-short').value = '';
+    btn.disabled = false;
+  }
+}
+
+function saveLocal(comment) {
+  var arr = JSON.parse(localStorage.getItem('abi_comments') || '[]');
+  arr.unshift(comment);
+  if(arr.length > 50) arr = arr.slice(0,50);
+  localStorage.setItem('abi_comments', JSON.stringify(arr));
+  renderComments(arr);
+}
+
+function loadLocalComments() {
+  var arr = JSON.parse(localStorage.getItem('abi_comments') || '[]');
+  renderComments(arr);
+}
+
+function loadComments() {
+  if(!db){ loadLocalComments(); return; }
+  db.ref('comments').orderByChild('time').limitToLast(50)
+    .on('value', function(snapshot){
+      var arr = [];
+      snapshot.forEach(function(child){ arr.unshift(child.val()); });
+      renderComments(arr);
+    });
+}
+
+function renderComments(arr) {
+  var list = document.getElementById('comments-list');
+  var empty = document.getElementById('comments-empty');
+  if(!arr || arr.length === 0){
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  var html = arr.map(function(c){
+    var d = new Date(c.time);
+    var dateStr = d.toLocaleDateString('uk-UA') + ' ' + d.toLocaleTimeString('uk-UA',{hour:'2-digit',minute:'2-digit'});
+    var safeNick = c.nick.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    var safeText = c.text.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return '<div class="comment-item"><div class="comment-meta"><span class="comment-nick">🎮 '+safeNick+'</span><span class="comment-time">'+dateStr+'</span></div><div class="comment-text">'+safeText+'</div></div>';
+  }).join('');
+  list.innerHTML = html + '<div class="comments-empty" id="comments-empty" style="display:none"></div>';
+}
+
+// ===== Бургер меню =====
 var burger = document.getElementById('burger');
 var menu = document.getElementById('mobile-menu');
 var overlay = document.getElementById('menu-overlay');
 
 burger.addEventListener('click', function() {
   var isOpen = menu.classList.contains('open');
-  if (isOpen) {
-    closeMenu();
-  } else {
+  if (isOpen) { closeMenu(); }
+  else {
     menu.classList.add('open');
     overlay.classList.add('open');
     burger.classList.add('open');
