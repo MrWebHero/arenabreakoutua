@@ -279,7 +279,67 @@ footer{background:#181b22;padding:40px;text-align:center}
 .socials a.youtube-link:hover{color:#FF0000}
 .socials a.tiktok-link:hover{color:#ff9f1c}
 
-/* ===== FLOAT BUTTON — прибрано ===== */
+/* ===== PRELOADER ===== */
+#preloader{
+  position:fixed;inset:0;z-index:9999;
+  background:#0a0c10;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:24px;
+  transition:opacity .8s ease;
+}
+#preloader.fade-out{opacity:0;pointer-events:none}
+
+.skull-wrap{position:relative;width:90px;height:90px}
+.skull-svg{
+  width:90px;height:90px;
+  animation:skull-spin 1.8s linear infinite;
+  filter:drop-shadow(0 0 16px rgba(255,159,28,.7));
+}
+@keyframes skull-spin{
+  0%{transform:rotate(0deg) scale(1)}
+  50%{transform:rotate(180deg) scale(1.12)}
+  100%{transform:rotate(360deg) scale(1)}
+}
+
+.preloader-ring{
+  position:absolute;inset:-10px;
+  border-radius:50%;
+  border:2px solid transparent;
+  border-top-color:#ff9f1c;
+  border-right-color:rgba(255,159,28,.3);
+  animation:ring-spin 1.2s linear infinite;
+}
+@keyframes ring-spin{to{transform:rotate(360deg)}}
+
+.preloader-title{
+  font-family:Arial,sans-serif;
+  font-size:28px;font-weight:900;
+  letter-spacing:6px;color:#fff;
+  text-transform:uppercase;
+  animation:pulse-text 1.8s ease-in-out infinite;
+}
+.preloader-title span{color:#ff9f1c}
+@keyframes pulse-text{
+  0%,100%{opacity:.7}
+  50%{opacity:1;text-shadow:0 0 20px rgba(255,159,28,.5)}
+}
+.preloader-sub{
+  font-size:12px;color:#555;
+  letter-spacing:3px;text-transform:uppercase;
+  font-family:Arial,sans-serif;
+}
+.preloader-bar-wrap{
+  width:180px;height:2px;
+  background:#1a1f2a;border-radius:2px;overflow:hidden;
+}
+.preloader-bar{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,#ff9f1c,#ffcc80);
+  border-radius:2px;
+  animation:bar-fill 2.8s ease forwards;
+}
+@keyframes bar-fill{to{width:100%}}
 
 /* ===== MEDIA ===== */
 @media(max-width:768px){
@@ -297,6 +357,37 @@ footer{background:#181b22;padding:40px;text-align:center}
 
 </head>
 <body>
+
+<!-- PRELOADER -->
+
+<div id="preloader">
+  <div class="skull-wrap">
+    <div class="preloader-ring"></div>
+    <svg class="skull-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Череп -->
+      <ellipse cx="50" cy="42" rx="28" ry="26" fill="#ff9f1c" opacity=".95"/>
+      <!-- Щелепа -->
+      <rect x="34" y="62" width="32" height="14" rx="4" fill="#ff9f1c" opacity=".9"/>
+      <!-- Зуби -->
+      <rect x="37" y="67" width="6" height="9" rx="2" fill="#0a0c10"/>
+      <rect x="47" y="67" width="6" height="9" rx="2" fill="#0a0c10"/>
+      <rect x="57" y="67" width="6" height="9" rx="2" fill="#0a0c10"/>
+      <!-- Очі -->
+      <ellipse cx="40" cy="40" rx="8" ry="9" fill="#0a0c10"/>
+      <ellipse cx="60" cy="40" rx="8" ry="9" fill="#0a0c10"/>
+      <!-- Блиск в очах -->
+      <ellipse cx="43" cy="37" rx="2.5" ry="3" fill="#ff9f1c" opacity=".4"/>
+      <ellipse cx="63" cy="37" rx="2.5" ry="3" fill="#ff9f1c" opacity=".4"/>
+      <!--Ніс -->
+      <path d="M46 50 L50 56 L54 50 Z" fill="#0a0c10" opacity=".7"/>
+      <!-- Тріщина -->
+      <path d="M50 18 L48 28 L52 34 L49 42" stroke="#0a0c10" stroke-width="1.5" fill="none" opacity=".5"/>
+    </svg>
+  </div>
+  <div class="preloader-title">ABI <span>UKRAINE</span></div>
+  <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
+  <div class="preloader-sub">Loading...</div>
+</div>
 
 <header>
 <div class="nav">
@@ -326,6 +417,7 @@ footer{background:#181b22;padding:40px;text-align:center}
   <a href="#discord-section" onclick="closeMenu()">💬 Спільнота</a>
   <a href="#guides-section" onclick="closeMenu()">📚 Гайди</a>
   <a href="weapons.html">🔫 Зброя</a>
+  <a href="armor.html">🛡️ Броня та шоломи</a>
 </nav>
 
 <main>
@@ -632,6 +724,15 @@ try {
   console.log('Firebase не налаштовано — коментарі в локальному режимі');
   loadLocalComments();
 }
+
+// ===== Preloader =====
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    var p = document.getElementById('preloader');
+    p.classList.add('fade-out');
+    setTimeout(function(){ p.style.display='none'; }, 800);
+  }, 3000);
+});
 
 // ===== Discord онлайн статистика =====
 fetch('https://discord.com/api/guilds/1274084700625043457/widget.json')
