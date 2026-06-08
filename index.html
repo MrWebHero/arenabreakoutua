@@ -279,6 +279,49 @@ footer{background:#181b22;padding:40px;text-align:center}
 .socials a.youtube-link:hover{color:#FF0000}
 .socials a.tiktok-link:hover{color:#ff9f1c}
 
+/* ===== SEASON COUNTDOWN ===== */
+.season-countdown{max-width:1200px;margin:0 auto;padding:0 20px 10px}
+.countdown-banner{background:linear-gradient(135deg,#0d1520,#1a0a00);border:1px solid rgba(255,159,28,.3);border-radius:18px;padding:24px 30px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden}
+.countdown-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 0% 50%,rgba(255,159,28,.08),transparent 60%);pointer-events:none}
+.countdown-label{flex-shrink:0}
+.s6-badge{background:rgba(255,159,28,.15);border:1px solid rgba(255,159,28,.4);color:#ff9f1c;font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:6px}
+.countdown-label h3{font-size:20px;font-weight:900;color:#fff;line-height:1.2}
+.countdown-label p{font-size:12px;color:#888;margin-top:3px}
+.countdown-blocks{display:flex;gap:10px;flex:1;justify-content:center;flex-wrap:wrap}
+.cd-block{background:rgba(0,0,0,.4);border:1px solid #1e2535;border-radius:12px;padding:12px 16px;text-align:center;min-width:70px}
+.cd-num{font-size:32px;font-weight:900;color:#ff9f1c;display:block;line-height:1;text-shadow:0 0 20px rgba(255,159,28,.4)}
+.cd-unit{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-top:4px;display:block}
+
+/* ===== RAID CALCULATOR ===== */
+.raid-calc{max-width:1200px;margin:70px auto;padding:0 20px}
+.raid-calc h2{text-align:center;color:#ffb84d;font-size:36px;margin-bottom:8px}
+.raid-calc-sub{text-align:center;color:#666;font-size:13px;margin-bottom:28px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.calc-grid{grid-template-columns:1fr}}
+.calc-card{background:#181b22;border-radius:16px;padding:20px;border:1px solid #1e2535}
+.calc-card h4{font-size:12px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.calc-select{width:100%;background:#0f1115;border:1px solid #2a3040;color:#fff;border-radius:10px;padding:11px 14px;font-size:13px;outline:none;cursor:pointer;transition:.2s;appearance:none}
+.calc-select:focus{border-color:#ff9f1c}
+.ammo-row{display:flex;align-items:center;gap:10px;margin-top:10px}
+.ammo-row label{font-size:12px;color:#888;white-space:nowrap}
+.ammo-count{width:70px;background:#0f1115;border:1px solid #2a3040;color:#fff;border-radius:8px;padding:8px 10px;font-size:13px;outline:none;text-align:center}
+.calc-result{background:linear-gradient(135deg,#0d1520,#111827);border-radius:16px;padding:24px;border:1px solid rgba(255,159,28,.2);grid-column:1/-1}
+.calc-result h4{font-size:12px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+.result-rows{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.result-row{display:flex;justify-content:space-between;font-size:13px}
+.result-row .r-label{color:#888}
+.result-row .r-val{color:#ccc;font-weight:600}
+.result-divider{height:1px;background:#1e2535;margin:10px 0}
+.result-total{display:flex;justify-content:space-between;align-items:center;font-size:22px;font-weight:900}
+.result-total .t-label{color:#fff}
+.result-total .t-val{color:#ff9f1c;text-shadow:0 0 20px rgba(255,159,28,.3)}
+.risk-wrap{margin-top:14px}
+.risk-label-row{display:flex;justify-content:space-between;font-size:11px;color:#888;margin-bottom:5px}
+.risk-bar{height:6px;background:#1e2535;border-radius:3px;overflow:hidden}
+.risk-fill{height:100%;border-radius:3px;transition:width .6s ease;background:linear-gradient(90deg,#23a55a,#ff9f1c,#ff4d4d)}
+.calc-btn{width:100%;background:#ff9f1c;color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;transition:.2s;margin-top:4px;grid-column:1/-1}
+.calc-btn:hover{background:#e8901a;transform:translateY(-1px)}
+
 /* ===== PRELOADER ===== */
 #preloader{
   position:fixed;inset:0;z-index:9999;
@@ -459,7 +502,23 @@ footer{background:#181b22;padding:40px;text-align:center}
 </div>
 </section>
 
-<section class="cards" aria-label="Механіки гри">
+<!-- SEASON 6 COUNTDOWN -->
+
+<div class="season-countdown">
+<div class="countdown-banner">
+  <div class="countdown-label">
+    <span class="s6-badge">СЕЗОН 6 · CBT ВІДКРИТО</span>
+    <h3>🔥 Наступний сезон</h3>
+    <p>Орієнтовно серпень 2026 · PC версія</p>
+  </div>
+  <div class="countdown-blocks">
+    <div class="cd-block"><span class="cd-num" id="cd-days">--</span><span class="cd-unit">Днів</span></div>
+    <div class="cd-block"><span class="cd-num" id="cd-hours">--</span><span class="cd-unit">Годин</span></div>
+    <div class="cd-block"><span class="cd-num" id="cd-min">--</span><span class="cd-unit">Хвилин</span></div>
+    <div class="cd-block"><span class="cd-num" id="cd-sec">--</span><span class="cd-unit">Секунд</span></div>
+  </div>
+</div>
+</div>
 <div class="grid">
 
 <div class="card">
@@ -618,6 +677,147 @@ footer{background:#181b22;padding:40px;text-align:center}
 
 </section>
 
+<!-- RAID CALCULATOR -->
+
+<section class="raid-calc" id="calculator" aria-label="Калькулятор рейду">
+<h2>🧮 Калькулятор рейду</h2>
+<p class="raid-calc-sub">Підбери спорядження та дізнайся скільки Koen ти ризикуєш у рейді · Ціни PC версії ABI</p>
+<div class="calc-grid">
+
+  <div class="calc-card">
+    <h4>🛡️ Броня</h4>
+    <select class="calc-select" id="calc-armor" onchange="calcUpdate()">
+      <option value="0">— Без броні —</option>
+      <optgroup label="──── Тір 1 ────">
+        <option value="1500">Сталевий жилет Т1 · ~1 500</option>
+        <option value="1000">Арамідний жилет Т1 · ~1 000</option>
+      </optgroup>
+      <optgroup label="──── Тір 2 ────">
+        <option value="4500">Захисний жилет Т2 · ~4 500</option>
+      </optgroup>
+      <optgroup label="──── Тір 3 ────">
+        <option value="11000">H-LC Lightweight Т3 · ~11 000</option>
+        <option value="9500">Алюмінієвий жилет Т3 · ~9 500</option>
+      </optgroup>
+      <optgroup label="──── Тір 4 ────">
+        <option value="27000">6B13 Composite Т4 · ~27 000</option>
+        <option value="29000">6B23 Steel Т4 · ~29 000</option>
+      </optgroup>
+      <optgroup label="──── Тір 5 ────">
+        <option value="75000">926 Composite Т5 · ~75 000</option>
+        <option value="110000">BT6 Heavy Т5 · ~110 000</option>
+      </optgroup>
+      <optgroup label="──── Тір 6 ────">
+        <option value="230000">BT101 Ceramic Т6 · ~230 000</option>
+        <option value="170000">KN Composite Т6 · ~170 000</option>
+        <option value="170000">6B45 Heavy Т6 · ~170 000</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div class="calc-card">
+    <h4>⛑️ Шолом</h4>
+    <select class="calc-select" id="calc-helmet" onchange="calcUpdate()">
+      <option value="0">— Без шолома —</option>
+      <optgroup label="──── Тір 1 ────">
+        <option value="1000">Kelsey Fire Т1 · ~1 000</option>
+        <option value="950">Танкова каска Т1 · ~950</option>
+      </optgroup>
+      <optgroup label="──── Тір 3 ────">
+        <option value="12000">6B5 Polyethylene Т3 · ~12 000</option>
+      </optgroup>
+      <optgroup label="──── Тір 4 ────">
+        <option value="17000">SH40 Military Т4 · ~17 000</option>
+        <option value="20000">IND Tactical Т4 · ~20 000</option>
+      </optgroup>
+      <optgroup label="──── Тір 5 ────">
+        <option value="65000">Tactical Helmet Т5 · ~65 000</option>
+      </optgroup>
+      <optgroup label="──── Тір 6 ────">
+        <option value="150000">Matzka / SH-2 Т6 · ~150 000</option>
+        <option value="125000">Titan T6 · ~125 000</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div class="calc-card">
+    <h4>🔫 Зброя</h4>
+    <select class="calc-select" id="calc-weapon" onchange="calcUpdate()">
+      <option value="0">— Без зброї —</option>
+      <optgroup label="──── Бюджетні ────">
+        <option value="115000">AKM · ~115 000</option>
+        <option value="175000">AK-74N · ~175 000</option>
+        <option value="185000">AK-102 · ~185 000</option>
+        <option value="65000">MP5 · ~65 000</option>
+        <option value="55000">Мосін-Наган · ~55 000</option>
+      </optgroup>
+      <optgroup label="──── Середні ────">
+        <option value="300000">M4A1 · ~300 000</option>
+        <option value="350000">AEK-971 · ~350 000</option>
+        <option value="400000">MCX Virtus · ~400 000</option>
+        <option value="390000">M110 DMR · ~390 000</option>
+        <option value="170000">MPX · ~170 000</option>
+        <option value="190000">P90 · ~190 000</option>
+        <option value="150000">MP7A1 · ~150 000</option>
+      </optgroup>
+      <optgroup label="──── Топ ────">
+        <option value="750000">HK416 · ~750 000</option>
+        <option value="550000">FAL · ~550 000</option>
+        <option value="700000">SJ16 · ~700 000</option>
+        <option value="290000">RPK-16 LMG · ~290 000</option>
+        <option value="130000">Desert Eagle · ~130 000</option>
+      </optgroup>
+    </select>
+  </div>
+
+  <div class="calc-card">
+    <h4>🔴 Патрони</h4>
+    <select class="calc-select" id="calc-ammo" onchange="calcUpdate()">
+      <option value="0">— Без патронів —</option>
+      <optgroup label="──── Тір 2 (~500/шт) ────">
+        <option value="500">Т2 базові · ~500 Koen/шт</option>
+      </optgroup>
+      <optgroup label="──── Тір 3 (~1 500/шт) ────">
+        <option value="1500">Т3 стандарт · ~1 500/шт</option>
+      </optgroup>
+      <optgroup label="──── Тір 4 (~2 500/шт) ────">
+        <option value="2500">Т4 покращені · ~2 500/шт</option>
+      </optgroup>
+      <optgroup label="──── Тір 5 (~10 000/шт) ────">
+        <option value="10000">Т5 ендгейм · ~10 000/шт</option>
+      </optgroup>
+      <optgroup label="──── Тір 6 (~30 000/шт) ────">
+        <option value="30000">Т6 мета · ~30 000/шт</option>
+      </optgroup>
+    </select>
+    <div class="ammo-row">
+      <label>Кількість:</label>
+      <input type="number" class="ammo-count" id="calc-ammo-count" value="30" min="1" max="200" onchange="calcUpdate()" oninput="calcUpdate()">
+      <span style="font-size:12px;color:#888">шт</span>
+    </div>
+  </div>
+
+  <div class="calc-result" id="calc-result">
+    <h4>📊 Розрахунок витрат</h4>
+    <div class="result-rows" id="result-rows">
+      <div class="result-row"><span class="r-label">Оберіть спорядження вище</span><span class="r-val">—</span></div>
+    </div>
+    <div class="result-divider"></div>
+    <div class="result-total">
+      <span class="t-label">💰 Всього під ризиком:</span>
+      <span class="t-val" id="result-total">0 Koen</span>
+    </div>
+    <div class="risk-wrap">
+      <div class="risk-label-row"><span>Рівень ризику</span><span id="risk-text">—</span></div>
+      <div class="risk-bar"><div class="risk-fill" id="risk-fill" style="width:0%"></div></div>
+    </div>
+  </div>
+
+<button class="calc-btn" onclick="calcReset()">🔄 Скинути</button>
+
+</div>
+</section>
+
 <section class="about" id="about" aria-label="Про гру Arena Breakout Infinite">
 <h2>Про Arena Breakout Infinite</h2>
 <div class="about-grid">
@@ -724,6 +924,126 @@ try {
   console.log('Firebase не налаштовано — коментарі в локальному режимі');
   loadLocalComments();
 }
+
+// ===== PARALLAX =====
+window.addEventListener('scroll', function(){
+  var heroBg = document.querySelector('.hero-bg');
+  if(heroBg){
+    var scrolled = window.pageYOffset;
+    heroBg.style.transform = 'translateZ(0) translateY(' + (scrolled * 0.3) + 'px)';
+  }
+}, {passive:true});
+
+// ===== ANIMATED COUNTERS =====
+function animateCounter(el, target, suffix){
+  var start = 0;
+  var duration = 1800;
+  var step = target / (duration / 16);
+  var current = start;
+  var timer = setInterval(function(){
+    current += step;
+    if(current >= target){
+      current = target;
+      clearInterval(timer);
+    }
+    if(target >= 1000){
+      el.textContent = Math.floor(current).toLocaleString('uk-UA') + (suffix||'');
+    } else {
+      el.textContent = Math.floor(current) + (suffix||'');
+    }
+  }, 16);
+}
+
+var countersAnimated = false;
+var statsSection = document.getElementById('community');
+if(statsSection){
+  var observer2 = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting && !countersAnimated){
+      countersAnimated = true;
+      var stats = statsSection.querySelectorAll('.stat h3');
+      if(stats[0]) animateCounter(stats[0], 191000, '+');
+    }
+  }, {threshold:0.3});
+  observer2.observe(statsSection);
+}
+
+// ===== SEASON 6 COUNTDOWN =====
+function updateCountdown(){
+  var target = new Date('2026-08-19T12:00:00');
+  var now = new Date();
+  var diff = target - now;
+  if(diff <= 0){
+    document.getElementById('cd-days').textContent = '0';
+    document.getElementById('cd-hours').textContent = '0';
+    document.getElementById('cd-min').textContent = '0';
+    document.getElementById('cd-sec').textContent = '0';
+    return;
+  }
+  var days = Math.floor(diff / 86400000);
+  var hours = Math.floor((diff % 86400000) / 3600000);
+  var mins = Math.floor((diff % 3600000) / 60000);
+  var secs = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent = days;
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+  document.getElementById('cd-min').textContent = String(mins).padStart(2,'0');
+  document.getElementById('cd-sec').textContent = String(secs).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ===== RAID CALCULATOR =====
+var PRICES = {};
+function calcUpdate(){
+  var armor = parseInt(document.getElementById('calc-armor').value)||0;
+  var helmet = parseInt(document.getElementById('calc-helmet').value)||0;
+  var weapon = parseInt(document.getElementById('calc-weapon').value)||0;
+  var ammoPrice = parseInt(document.getElementById('calc-ammo').value)||0;
+  var ammoCount = parseInt(document.getElementById('calc-ammo-count').value)||0;
+  var ammoTotal = ammoPrice * ammoCount;
+  var total = armor + helmet + weapon + ammoTotal;
+
+  var rows = '';
+  if(armor > 0) rows += '<div class="result-row"><span class="r-label">🛡️ Броня</span><span class="r-val">'+fmtK(armor)+' Koen</span></div>';
+  if(helmet > 0) rows += '<div class="result-row"><span class="r-label">⛑️ Шолом</span><span class="r-val">'+fmtK(helmet)+' Koen</span></div>';
+  if(weapon > 0) rows += '<div class="result-row"><span class="r-label">🔫 Зброя</span><span class="r-val">'+fmtK(weapon)+' Koen</span></div>';
+  if(ammoTotal > 0) rows += '<div class="result-row"><span class="r-label">🔴 Патрони ('+ammoCount+' шт)</span><span class="r-val">'+fmtK(ammoTotal)+' Koen</span></div>';
+  if(!rows) rows = '<div class="result-row"><span class="r-label">Оберіть спорядження вище</span><span class="r-val">—</span></div>';
+
+  document.getElementById('result-rows').innerHTML = rows;
+  document.getElementById('result-total').textContent = fmtK(total) + ' Koen';
+
+  // Risk bar
+  var risk = 0;
+  var riskText = '';
+  var riskColor = '';
+  if(total < 50000){ risk=10; riskText='✅ Бюджетний рейд'; riskColor='#23a55a'; }
+  else if(total < 150000){ risk=30; riskText='🟡 Помірний ризик'; riskColor='#ffcc00'; }
+  else if(total < 350000){ risk=55; riskText='🟠 Серйозний ризик'; riskColor='#ff9f1c'; }
+  else if(total < 700000){ risk=75; riskText='🔴 Високий ризик!'; riskColor='#ff6b35'; }
+  else { risk=95; riskText='💀 Екстремальний!'; riskColor='#ff4d4d'; }
+
+  document.getElementById('risk-fill').style.width = risk + '%';
+  var rt = document.getElementById('risk-text');
+  rt.textContent = riskText;
+  rt.style.color = riskColor;
+  rt.style.fontWeight = '700';
+}
+
+function fmtK(n){
+  if(n >= 1000000) return (n/1000000).toFixed(1).replace('.',',') + 'M';
+  if(n >= 1000) return Math.round(n/1000) + ' ' + String(Math.round(n%1000)).padStart(3,'0');
+  return n.toString();
+}
+
+function calcReset(){
+  document.getElementById('calc-armor').value = '0';
+  document.getElementById('calc-helmet').value = '0';
+  document.getElementById('calc-weapon').value = '0';
+  document.getElementById('calc-ammo').value = '0';
+  document.getElementById('calc-ammo-count').value = '30';
+  calcUpdate();
+}
+calcUpdate();
 
 // ===== Preloader =====
 window.addEventListener('load', function(){
